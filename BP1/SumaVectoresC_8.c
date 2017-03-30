@@ -71,6 +71,9 @@ int main(int argc, char** argv){
 			}
 		}
 
+    cgt1 = omp_get_wtime();
+
+
     #pragma omp sections
     		{
     			#pragma omp section

@@ -2,8 +2,8 @@
    Suma de dos vectores: v3 = v1 + v2
 
    Para compilar usar (-lrt: real time library):
-   gcc -O2 SumaVectoresC.c -o SumaVectores -lrt
-   gcc -O2 –S SumaVectores.c –lrt
+   gcc -O2 SumaVectoresC.c -o SumaVectoresC -lrt
+   gcc -O2 –S SumaVectoresC.c –lrt
    //para generar el código ensamblador
 
    Para ejecutar use: SumaVectoresC longitud
