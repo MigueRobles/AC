@@ -17,7 +17,7 @@ int main()
   for(i=0; i<n; i++)
   {
    v =  a[i];
-   printf("thread %d suma a[%d] /", omp_get_thread_num(), v);
+   printf("thread %d v=%d/", omp_get_thread_num(), v);
   }
   printf("\nFuera de la construccion 'parallel for' v = %d\n", v);
 }

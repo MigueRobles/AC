@@ -8,7 +8,7 @@ int main(){
 
 #pragma omp parallel
 { int a;
-  #pragma omp single copyprivate(a)
+  #pragma omp single
   {
     printf("\nIntroduce el valor de inicializacion a: ");
     scanf("%d", &a );

@@ -13,12 +13,16 @@ int main()
   for(i=0; i<n; i++)
     a[i] = i;
 
-#pragma omp parallel for firstprivate(suma)
+#pragma omp parallel 
+{
+  suma=0;
+  #pragma omp for
   for(i=0; i<n; i++)
   {
    suma = suma + a[i];
-   printf("thread %d suma a[%d] suma = %d\n", omp_get_thread_num(), i,suma);
+   printf("thread %d suma a[%d] /", omp_get_thread_num(), i);
   }
-  printf("\nFuera de la construccion 'parallel for' suma = %d\n", suma);
-
+  printf("\n* thread %d suma = %d", omp_get_thread_num(), suma);
+}
+  printf("\n");
 }
