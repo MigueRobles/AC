@@ -7,7 +7,7 @@
 #endif
 
 int main(int argc, char const **argv) {
-  int i, n = 20, a[n], suma = 10;
+  int i, n = 20, a[n], suma = 0, sumalocal;
 
   if(argc < 2){
     fprintf(stderr, "Falta iteraciones\n");
@@ -19,11 +19,15 @@ int main(int argc, char const **argv) {
     n = 20;
     printf("n = %d\n",n);
   }
-
   for (int i = 0; i < n; i++) a[i] = i;
-  #pragma omp parallel for reduction(+:suma)
-  for (int i = 0; i < n; i++) suma += a[i];
 
+  #pragma opm parallel private(sumalocal)
+    { sumalocal = 0;
+      #pragma omp for schedule(static)
+        for (int i = 0; i < n; i++) suma += a[i];
+  #pragma opm critical
+    suma += sumalocal;
+}
   printf("Tras 'parallel' suma = %d\n",suma );
 
 }
