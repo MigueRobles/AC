@@ -32,10 +32,9 @@ int main(int argc, char **argv)
   for (i=0; i<n; i++) {
     suma = suma + a[i];
     printf(" thread %d suma a[%d]=%d suma=%d \n", omp_get_thread_num(),i,a[i],suma);
-    if(omp_get_thread_num() == 0)
-    {
+    if(omp_get_thread_num() == 0){
       printf("\n Dentro de 'parallel for':\n");
-      printf("   static = 1, dynamic = 2, guided = 3, auto = 4\n");
+      printf("static = 1, dynamic = 2, guided = 3, auto = 4\n");
 
       omp_get_schedule(&schedule_type, &chunk_value);
       printf("   dyn-var: %d, nthreads-var:%d, thread-limit-var:%d,run-sched-var: %d, chunk: %d\n", \
@@ -45,6 +44,7 @@ int main(int argc, char **argv)
 
   printf("\nFuera de 'parallel for' suma=%d\n",suma);
   printf("   static = 1, dynamic = 2, guided = 3, auto = 4\n");
+	
   omp_get_schedule(&schedule_type, &chunk_value);
   printf("   dyn-var: %d, nthreads-var:%d, thread-limit-var:%d,run-sched-var: %d, chunk: %d\n", \
   omp_get_dynamic(),omp_get_max_threads(), omp_get_thread_limit(), schedule_type, chunk_value);
