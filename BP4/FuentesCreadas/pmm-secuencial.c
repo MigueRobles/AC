@@ -6,8 +6,7 @@
 
 int a[MAX][MAX], b[MAX][MAX], c[MAX][MAX];
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
     unsigned i, j, k;
 
     if(argc < 2)
@@ -21,10 +20,8 @@ int main(int argc, char **argv)
     if (N>MAX) N=MAX;
 
     // Inicializamos las matrices
-    for (i=0; i<N; i++)
-    {
-        for (j=0; j<N; j++)
-        {
+    for (i=0; i<N; i++)    {
+        for (j=0; j<N; j++)        {
             a[i][j] = 0;
             b[i][j] = 2;
             c[i][j] = 2;

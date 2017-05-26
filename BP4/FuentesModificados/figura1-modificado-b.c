@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
+
 
 struct{
     int a;
@@ -11,6 +13,25 @@ int main(int argc, char **argv){
     int R[40000];
 
     struct timespec cgt1,cgt2; double ncgt;
+
+    for (int i = 0; i < 5000/8; i+=8) {
+      s[i].a = rand()%8;
+      s[i+2].a = rand()%8;
+      s[i+3].a = rand()%8;
+      s[i+4].a = rand()%8;
+      s[i+5].a = rand()%8;
+      s[i+6].a = rand()%8;
+      s[i+7].a = rand()%8;
+      s[i+8].a = rand()%8;
+      s[i].b = rand()%8;
+      s[i+2].b = rand()%8;
+      s[i+3].b = rand()%8;
+      s[i+4].b = rand()%8;
+      s[i+5].b = rand()%8;
+      s[i+6].b = rand()%8;
+      s[i+7].b = rand()%8;
+      s[i+8].b = rand()%8;
+    }
 
     clock_gettime(CLOCK_REALTIME,&cgt1);
 

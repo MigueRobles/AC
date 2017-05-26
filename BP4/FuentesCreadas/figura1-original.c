@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
 struct{
     int a;
@@ -9,6 +10,11 @@ struct{
 int main(int argc, char **argv){
     int ii, i, X1, X2;
     int R[40000];
+
+    for (int i = 0; i < 5000; i++) {
+      s[i].a = rand()%8;
+      s[i].b = rand()%8;
+    }
 
     struct timespec cgt1,cgt2; double ncgt;
 
